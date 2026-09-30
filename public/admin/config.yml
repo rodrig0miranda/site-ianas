@@ -1,7 +1,9 @@
 backend:
+backend:
   name: github
-  repo: rodrig0miranda/site-ianas # VOCÊ VAI MUDAR ISSO DEPOIS
+  repo: rodrig0miranda/site-ianas
   branch: main
+  base_url: https://sveltia-cms-auth.pages.dev
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
