@@ -1,5 +1,4 @@
 backend:
-backend:
   name: github
   repo: rodrig0miranda/site-ianas
   branch: main
