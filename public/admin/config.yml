@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: rodrig0miranda/site-ianas # VOCÊ VAI MUDAR ISSO DEPOIS
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "noticias"
+    label: "Notícias"
+    folder: "src/pages/noticias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data da Publicação", name: "date", widget: "datetime"}
+      - {label: "Imagem de Capa", name: "thumbnail", widget: "image", required: false}
+      - {label: "Corpo do Texto", name: "body", widget: "markdown"}
