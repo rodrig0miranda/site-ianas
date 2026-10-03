@@ -23,7 +23,6 @@
             background-color: #F4EFE6;
         }
 
-        /* Camada 1: O Fundo Fotográfico */
         .hero-section {
             min-height: 100vh;
             background-image: url('fundo.jpeg');
@@ -38,7 +37,6 @@
             padding: 20px;
         }
 
-        /* Camada 2: A película areia semi-transparente */
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -46,7 +44,6 @@
             z-index: 1;
         }
 
-        /* Camada 3: O Conteúdo */
         .content {
             position: relative;
             z-index: 2;
@@ -71,7 +68,6 @@
             font-weight: 400;
         }
 
-        /* Logo */
         .logo { 
             width: 300px; 
             margin-bottom: 10px; 
@@ -98,7 +94,6 @@
             margin-bottom: 50px;
         }
 
-        /* O Botão de Captura  */
         .cta-button {
             background: linear-gradient(90deg, #849C72, #1B5E20);
             color: #fff;
@@ -111,12 +106,13 @@
             letter-spacing: 1.5px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             transition: transform 0.2s;
+            text-align: center;
         }
 
         .cta-button:hover {
             transform: scale(1.05);
         }
-        /* Cronômetro */
+        
         .countdown {
             display: flex;
             gap: 15px;
@@ -148,7 +144,6 @@
             display: block;
         }
     </style>
-    <!-- Importação de Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -170,41 +165,47 @@
             <div class="signature">
                 Mais que moda, é o seu momento.
             </div>
+            
             <div class="countdown" id="countdown">
                 <div class="time-box"><span id="days">00</span><label>Dias</label></div>
                 <div class="time-box"><span id="hours">00</span><label>Horas</label></div>
                 <div class="time-box"><span id="minutes">00</span><label>Min</label></div>
                 <div class="time-box"><span id="seconds">00</span><label>Seg</label></div>
             </div>
-                <script>
-                        // Data alvo: 03 de Outubro de 2026, às 18:00:00
-                        const launchDate = new Date("Oct 3, 2026 18:00:00").getTime();
+            
+            <a id="cta-btn" href="https://wa.me/5571991720048?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20receber%20o%20acesso%20VIP%20assim%20que%20a%20loja%20abrir!" class="cta-button" target="_blank">QUERO ACESSO ANTECIPADO</a>
 
-                        const x = setInterval(function() {
-                            const now = new Date().getTime();
-                            const distance = launchDate - now;
+            <script>
+                const launchDate = new Date("Oct 3, 2026 18:00:00").getTime();
 
-                            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                const x = setInterval(function() {
+                    const now = new Date().getTime();
+                    const distance = launchDate - now;
 
-                            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-                            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-                            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-                            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+                    if (distance <= 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown").innerHTML = "<h2 style='font-family: Playfair Display; color: var(--pistache); font-size: 2.2rem; margin-bottom: 40px;'>A coleção está no ar!</h2>";
+                        
+                        const cta = document.getElementById("cta-btn");
+                        cta.innerText = "VEJA A COLEÇÃO AGORA";
+                        cta.href = "https://wa.me/5571991720048?text=Ol%C3%A1!%20Quero%20ver%20o%20cat%C3%A1logo%20da%20nova%20cole%C3%A7%C3%A3o!";
+                        return;
+                    }
 
-                            if (distance < 0) {
-                                clearInterval(x);
-                                document.getElementById("countdown").innerHTML = "<h2 style='font-family: Playfair Display; color: var(--pistache); font-size: 2rem;'>A loja está aberta!</h2>";
-                            }
-                        }, 1000);
-                    </script>
-            <!-- Botão de Ação -->
-            <a href="https://wa.me/5571991720048?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20receber%20o%20acesso%20VIP%20assim%20que%20a%20loja%20abrir!" class="cta-button" target="_blank">QUERO ACESSO ANTECIPADO</a>
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                    document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                    document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+                }, 1000);
+            </script>
 
         </div>
     </div>
-<!--FINAL DO SITE-->
+
 </body>
 </html>
